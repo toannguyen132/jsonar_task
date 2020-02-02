@@ -1,0 +1,27 @@
+.App {
+    height: 100vh;
+}
+
+.sidebar{
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.page-container{
+    display: grid;
+    grid-template-rows: 60px auto;
+    grid-row-gap: 20px;
+    height: 100vh;
+    overflow: hidden;
+    align-items: start;
+}
+
+.page-row{
+    height: 100%;
+    overflow: hidden;
+}
+
+.overflowed-container{
+    height: 100%;
+    overflow: auto;
+}

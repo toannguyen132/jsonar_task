@@ -4,11 +4,10 @@ const AuthHelper = require('./AuthHelper');
 
 const authCheck = function(req, res, next) {
   try {
-    if (!req.query.token)
+    if (!req.query.token && !req.headers['x-auth'])
       throw new Error("You are not authorized");
 
-    const token = req.query.token;
-    console.log(token);
+    const token = req.query.token || req.headers['x-auth'];
 
     const data = AuthHelper.verifyToken(token);
     req.authData = data;
