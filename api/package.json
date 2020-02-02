@@ -1,0 +1,21 @@
+{
+  "name": "jsonar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/toannguyen132/jsonar_task.git",
+  "author": "Toan Nguyen <n.minhtoan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/joi": "^17.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
