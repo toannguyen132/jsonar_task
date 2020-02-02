@@ -5,6 +5,7 @@ The home interview assignment for jSonar
 ## Project description
 
 Client: React
+
 API Server: NodeJS
 
 I used NodeJS for API server running on port 4000 and a React app running on port 3000. The React app called API server through proxy to prevent CORS issue
