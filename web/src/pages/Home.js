@@ -26,7 +26,7 @@ function Home() {
             return resp.data
         }).then(data => {
             if (data.token){
-                setToken(data.token)
+                setToken(data.token);
                 history.push('/customers');
             }
         }).catch(e => {

@@ -107,9 +107,13 @@ function Customers() {
                                     :
                                     <React.Fragment>
                                         <CustomerInfo customer={selectedCustomer} />
-                                        {orders.map(order => 
-                                            <OrderRow key={order.orderNumber} customerId={selectedCustomer.customerNumber} order={order} />
-                                        )}
+                                        { 
+                                            orders.length > 0 ? 
+                                                orders.map(order => 
+                                                    <OrderRow key={order.orderNumber} customerId={selectedCustomer.customerNumber} order={order} />
+                                                ) :
+                                                <p>This customer does not have order!</p>
+                                        }
                                     </React.Fragment>
                             }
                         </Accordion>

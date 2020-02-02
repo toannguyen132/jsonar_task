@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api/';
+const API_URL = '/api/';
 
 const TOKEN = localStorage.getItem("api-token");
 
 const config = {
     baseURL: API_URL,
     headers: {
-        'X-Auth': TOKEN
+        'x-auth': TOKEN
     }
 }
 
@@ -15,9 +15,7 @@ const service = axios.create(config);
 
 export const setToken = (token) => {
     localStorage.setItem('api-token', token);
-    service.defaults.headers.common['X-Auth'] = token;
-    // service.defaults.headers['x-auth'] = token;
-    console.log(service.defaults.headers.common['']);
+    service.defaults.headers.common['x-auth'] = localStorage.getItem('api-token');
 }
 export const hasToken = () => {
     return localStorage.getItem('api-token');
@@ -27,19 +25,24 @@ export const removeToken = () => {
     localStorage.removeItem('api-token');
 }
 
+const getService = () => {
+    config.headers['x-auth'] = localStorage.getItem('api-token')
+    return axios.create(config);
+}
+
 /** APIs request */
 export const fetchCustomers = () => {
-    return service.get('/customers')
+    return getService().get('/customers')
         .then(resp => resp.data.customers)
 }
 
 export const fetchOrders = (customerId) => {
-    return service.get(`/customers/${customerId}/orders`)
+    return getService().get(`/customers/${customerId}/orders`)
         .then(resp => resp.data)
 }
 
 export const fetchOrderDetails = (customerId, orderId) => {
-    return service.get(`/customers/${customerId}/orders/${orderId}`)
+    return getService().get(`/customers/${customerId}/orders/${orderId}`)
         .then(resp => resp.data)
 }
 
